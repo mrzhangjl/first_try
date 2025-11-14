@@ -1,4 +1,5 @@
 # python
+import math
 import cv2
 import numpy as np
 import sys
@@ -49,7 +50,7 @@ def resize_rotate(img):
     large = cv2.resize(img, (800, 600), interpolation=cv2.INTER_LINEAR)
     # 旋转（绕图像中心）
     h, w = img.shape[:2]
-    M = cv2.getRotationMatrix2D((w/2,h/2), 30, 1.0)  # 旋转30度
+    M = cv2.getRotationMatrix2D((w/2,h/2), 30, math.cos(math.acos(w/math.sqrt(h*h+w*w))) / math.cos(math.acos(w/math.sqrt(h*h+w*w))-math.radians(30)))# 旋转30度
     rotated = cv2.warpAffine(img, M, (w, h))
     cv2.imshow("Small", small)
     cv2.imshow("Large", large)
