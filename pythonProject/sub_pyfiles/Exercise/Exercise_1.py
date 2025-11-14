@@ -11,7 +11,7 @@ y, x = 100, 200
 b, g, r = img[y, x]  # 分别获取B、G、R通道的像素值（0-255）
 print(f"坐标({x}, {y})的像素值：B={b}, G={g}, R={r}")
 
-'''conversion_types = [
+conversion_types = [
     # BGR相关转换（OpenCV默认读取格式为BGR）
     (cv2.COLOR_BGR2GRAY, "COLOR_BGR2GRAY"),
     (cv2.COLOR_BGR2RGB, "COLOR_BGR2RGB"),
@@ -35,10 +35,10 @@ print(f"坐标({x}, {y})的像素值：B={b}, G={g}, R={r}")
     # 灰度图相关转换
     (cv2.COLOR_GRAY2BGR, "COLOR_GRAY2BGR"),
     (cv2.COLOR_GRAY2BGRA, "COLOR_GRAY2BGRA")
-]'''
+]
 
 
-'''for code, name in conversion_types:
+for code, name in conversion_types:
     try:
         # 执行颜色空间转换
         converted_img = cv2.cvtColor(img, code)
@@ -51,7 +51,7 @@ print(f"坐标({x}, {y})的像素值：B={b}, G={g}, R={r}")
         cv2.imshow(name, converted_img)
         print(f"已处理：{name}")
     except Exception as e:
-        print(f"处理 {name} 失败：{str(e)}")'''
+        print(f"处理 {name} 失败：{str(e)}")
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()
